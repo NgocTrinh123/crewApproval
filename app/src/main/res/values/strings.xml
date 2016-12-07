@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">CrewApproval</string>
+    <string name="app_name_onscreen">Crew\nApproval</string>
+    <!-- LoginActivity -->
+
+    <string name="loginActivity_message_wrong_server_site">서버에 접속할 수 없습니다.</string>
+
+    <!-- MainActivity -->
+    <string name="mainActivity_message_exit">\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.</string>
+    <string name="string_update_content">This new version exists. Would you like to install? </string>
+    <string name="mailActivity_message_download_apk">설치 파일을 다운로드 중입니다.\n잠시만 기다려주세요.</string>
+
+
+    <!-- MainActivity -->
+    <string name="loading_content">Please wait.</string>
+    <string name="string_ok">OK</string>
+    <string name="no_connection_error">No Internet Connection</string>
+    <string name="no_wifi_error">Please turn on wifi to continue</string>
+    <string name="string_cancel">Cancel</string>
+    <string name="turn_wifi_on">Turn wifi on</string>
+
+    <!-- Login activity -->
+    <string name="sign_up_suggest">Haven\'t you your Group(Company) ID yet?</string>
+    <string name="string_sign_up">Create a new Group(Company)</string>
+    <string name="login_password">Password</string>
+    <string name="login_username">Personal ID</string>
+    <string name="string_server_site">Group(Company) ID</string>
+    <string name="login_login">Log In</string>
+    <string name="no_network_error">Can Not Connect To Server</string>
+    <!-- Sign Up screen -->
+
+
+    <!-- AUTO LOGIN -->
+    <string name="auto_login_button_yes">Yes</string>
+    <string name="auto_login_button_no">No</string>
+    <string name="auto_login_company_ID">Group ID&#160;&#160;&#160;&#160;&#160;&#160;:&#160;</string>
+    <string name="auto_login_user_ID">Personal ID&#160;:&#160;</string>
+    <string name="auto_login_title">Auto Login</string>
+    <string name="auto_login_text">You have already logged in to CrewCloud service.​ Would you log in as the above account?​</string>
+    <string name="connection_falsed">Can not connect the above address </string>
+    <string name="login_empty_input">cannot be empty</string>
+    <string name="permission_denied">Permission Denied</string>
+
+    <!---Notification-->
+    <string name="profle">My Profile</string>
+    <string name="Generalsettings">General settings</string>
+    <string name="notify_setting">Notification Settings</string>
+    <string name="logout">Logout</string>
+    <string name="setting">Settings</string>
+    <string name="notifi_setting">Notification Settings</string>
+    <string name="getnotify">Get Notify of new mail</string>
+    <string name="noti_method">Notification Method</string>
+    <string name="sound">Sound</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="notifi_time">Notification Time</string>
+    <string name="Solar">Solar</string>
+    <string name="Leaf">Leaf</string>
+    <string name="showmore">Show more option</string>
+    <string name="Allow"> Inhibit from removing shared DDay</string>
+    <string name="selectgroup">Select Group</string>
+    <string name="the_new_mail_has_arrived">The new notice has arrived.</string>
+
+    <string name="setting_notification_new_mail">Get Notify of new mail</string>
+    <string name="setting_notification_method_label">Notification method</string>
+    <string name="setting_notification_sound">Sound</string>
+    <string name="setting_notification_vibrate">Vibrate</string>
+    <string name="setting_notification_time_label">Notification time</string>
+    <string name="setting_notification_time">Notification time</string>
+    <string name="setting_notification_from_time">AM 08:00</string>
+    <string name="setting_notification_to_time">PM 19:00</string>
+    <string name="setting_notification_time_error">End time must be bigger than start time.</string>
+
+    <string name="notification_message_type_1">결재 문서가 도착하였습니다</string>
+    <string name="notification_message_type_2">결재 문서가 종결되었습니다</string>
+    <string name="notification_message_type_3">결재 문서가 전결되었습니다</string>
+    <string name="notification_message_type_4">결재 문서가 수정되었습니다</string>
+    <string name="notification_message_type_5">결재 문서가 반려되었습니다</string>
+    <string name="notification_message_type_6">결재 문서가 보류되었습니다</string>
+    <string name="notification_message_type_7">결재 문서에 결재자 의견이 추가되었습니다</string>
+
+    <!---Profile-->
+    <string name="personal_id">PERSONAL ID</string>
+    <string name="email">EMAIL</string>
+    <string name="company_name">COMPANY NAME</string>
+    <string name="phone">PHONE NUMBER</string>>
+
+</resources>

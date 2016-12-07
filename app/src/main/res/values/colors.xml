@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#267BCC</color>
+    <color name="colorPrimaryDark">#1b6bb9</color>
+    <color name="colorAccent">#267BCC</color>
+
+    <color name="myColor_PrimaryDark">#4391bf</color>
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="app_base_color">#52afe7</color>
+    <color name="login_button_login_background">#37a3e4</color>
+    <color name="login_button_signup_background">#277bcd</color>
+    <color name="drawer_devide_color">#909796</color>
+
+    <color name="gray_light">#DFDFDF</color>
+</resources>

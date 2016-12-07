@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">CrewApproval</string>
+    <string name="app_name_onscreen">Crew\nApproval</string>
+    <!-- LoginActivity -->
+
+    <string name="loginActivity_message_wrong_server_site">서버에 접속할 수 없습니다.</string>
+
+    <!-- MainActivity -->
+    <string name="mainActivity_message_exit">\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.</string>
+    <string name="mailActivity_message_download_apk">설치 파일을 다운로드 중입니다.\n잠시만 기다려주세요.</string>
+    <string name="string_update_content">Tồn tại phiên bản mới. Bạn có muốn cập nhật phiên bản mới?</string>
+
+
+    <!-- MainActivity -->
+    <string name="loading_content">Please wait.</string>
+    <string name="string_ok">OK</string>
+    <string name="no_connection_error">No Internet Connection</string>
+    <string name="no_wifi_error">Please turn on wifi to continue</string>
+    <string name="string_cancel">Cancel</string>
+    <string name="turn_wifi_on">Turn wifi on</string>
+
+    <!-- Login activity -->
+    <string name="sign_up_suggest">Bạn chưa có ID tổ chức(công ty)?</string>
+    <string name="string_sign_up">Tạo tổ chức(công ty) mới</string>
+    <string name="login_password">Số bí mật</string>
+    <string name="login_username">ID người dùng</string>
+    <string name="string_server_site">ID Tổ chức(Công ty)</string>
+    <string name="login_login">Đăng nhập</string>
+    <string name="no_network_error">Không thể kết nối với server.</string>
+    <!-- Sign Up screen -->
+
+
+    <!-- AUTO LOGIN -->
+    <string name="auto_login_button_yes">Đồng ý</string>
+    <string name="auto_login_button_no">Hủy</string>
+    <string name="auto_login_company_ID">ID Tổ chức :&#160;</string>
+    <string name="auto_login_user_ID">ID Cá nhân :&#160;</string>
+    <string name="auto_login_title">Tự động đăng nhập​</string>
+    <string name="auto_login_text">Hiện tại đang được đăng nhập trên server CrewCloud. Bạn có muốn đăng nhập bằng tài khoản trên?​</string>
+
+    <string name="connection_falsed">Can not connect the above address </string>
+    <string name="login_empty_input">cannot be empty</string>
+    <string name="permission_denied">Permission Denied</string>
+
+    <!---Notification-->
+    <string name="profle">Thông tin của tôi</string>
+    <string name="Generalsettings">Cài đặt chung</string>
+    <string name="notify_setting">Thiết lập thông báo</string>
+    <string name="logout">Thoát</string>
+    <string name="setting">Cài đặt</string>
+    <string name="notifi_setting">Thiết lập thông báo</string>
+    <string name="getnotify">Nhận thông báo thư mới</string>
+    <string name="noti_method">Phương pháp thông báo</string>
+    <string name="sound">Âm thanh</string>
+    <string name="vibrate">Rung</string>
+    <string name="notifi_time">Thời gian thông báo</string>
+    <string name="Solar">Dương lịch</string>
+    <string name="Leaf">Tháng nhuận</string>
+    <string name="showmore">Thêm tùy chọn</string>
+    <string name="Allow">Không được xóa khỏi danh sách</string>
+    <string name="selectgroup">Chọn nhóm</string>
+    <string name="the_new_mail_has_arrived">Bạn vừa nhận được thông báo mới.</string>
+
+    <string name="setting_notification_new_mail">Get Notify of new mail</string>
+    <string name="setting_notification_method_label">Notification method</string>
+    <string name="setting_notification_sound">Sound</string>
+    <string name="setting_notification_vibrate">Vibrate</string>
+    <string name="setting_notification_time_label">Notification time</string>
+    <string name="setting_notification_time">Notification time</string>
+    <string name="setting_notification_from_time">AM 08:00</string>
+    <string name="setting_notification_to_time">PM 19:00</string>
+    <string name="setting_notification_time_error">End time must be bigger than start time.</string>
+
+    <string name="notification_message_type_1">결재 문서가 도착하였습니다</string>
+    <string name="notification_message_type_2">결재 문서가 종결되었습니다</string>
+    <string name="notification_message_type_3">결재 문서가 전결되었습니다</string>
+    <string name="notification_message_type_4">결재 문서가 수정되었습니다</string>
+    <string name="notification_message_type_5">결재 문서가 반려되었습니다</string>
+    <string name="notification_message_type_6">결재 문서가 보류되었습니다</string>
+    <string name="notification_message_type_7">결재 문서에 결재자 의견이 추가되었습니다</string>
+
+    <!---Profile-->
+    <string name="personal_id">ID người dùng</string>
+    <string name="email">Mail</string>
+    <string name="company_name">Tên tổ chức</string>
+    <string name="phone">Số điện thoại</string>
+
+</resources>

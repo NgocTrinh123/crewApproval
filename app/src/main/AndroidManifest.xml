@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.crewcloud.apps.crewapproval">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <application
+        android:name=".CrewCloudApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/approval"
+        android:label="@string/app_name_onscreen"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <service android:name=".firebase.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".activity.IntroActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".activity.SettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".activity.NotificationSettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+    </application>
+
+</manifest>

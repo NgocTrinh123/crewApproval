@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "453099073236",
+    "firebase_url": "https://crewapproval-f41ad.firebaseio.com",
+    "project_id": "crewapproval-f41ad",
+    "storage_bucket": "crewapproval-f41ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453099073236:android:c15a3d10982d8b69",
+        "android_client_info": {
+          "package_name": "com.crewcloud.apps.crewapproval"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453099073236-00sv0et0vp78t1igvaffbmrl6u23ijmk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-2S3dx7waGX8uFF9v4ppYxCmywTkKHqI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

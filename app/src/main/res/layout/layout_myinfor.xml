@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/lay_profile"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <FrameLayout
+        android:id="@+id/frbackground"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+
+            <com.crewcloud.apps.crewapproval.view.RoundedImageView
+                android:id="@+id/avatar_imv"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <!--<com.dazone.crewschedule.CustomView.FaceOverlayViewForSizeOther-->
+            <!--android:id="@+id/avatar_imv"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:layout_gravity="center" />-->
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="name" />
+        </LinearLayout>
+
+    </FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_add_new_schedule_height"
+        android:layout_marginTop="5dp"
+        android:background="@color/divider_add_new_schedule_color" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/personal_id" />
+
+        <TextView
+            android:id="@+id/tv_personal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_add_new_schedule_height"
+            android:layout_marginTop="5dp"
+            android:background="@color/divider_add_new_schedule_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_add_new_schedule_height"
+            android:layout_marginTop="5dp"
+            android:background="@color/divider_add_new_schedule_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/company_name" />
+
+        <TextView
+            android:id="@+id/tv_company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_add_new_schedule_height"
+            android:layout_marginTop="5dp"
+            android:background="@color/divider_add_new_schedule_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/phone" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_add_new_schedule_height"
+            android:layout_marginTop="5dp"
+            android:background="@color/divider_add_new_schedule_color" />
+    </LinearLayout>
+
+
+</LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_image_profile"
+            android:background="@color/white"
+            android:visibility="gone">
+    <ImageView
+        android:id="@+id/image_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:layout_centerInParent="true" />
+        </RelativeLayout>
+</FrameLayout>
+</LinearLayout>
