@@ -85,5 +85,7 @@
     <string name="email">메일</string>
     <string name="company_name">단체 이름</string>
     <string name="phone">전화번호</string>
+    <string name="are_you_sure_loguot">로그아웃 하시겠습니까?</string>
+    <string name="my_profile">내 정보</string>
 
 </resources>

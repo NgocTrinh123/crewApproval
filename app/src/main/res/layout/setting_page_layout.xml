@@ -16,42 +16,49 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            app:contentInsetStartWithNavigation="0dp"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/setting"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </android.support.v7.widget.Toolbar>
+
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
         android:id="@+id/ln_profile"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/setting_mgleft"
         android:layout_marginTop="@dimen/setting_mgtop"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@drawable/foreground_selector"
         android:orientation="horizontal">
 
-        <com.crewcloud.apps.crewapproval.view.RoundedLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/setting_mgleft">
 
-            <ImageView
-                android:id="@+id/img_avatar"
-                android:layout_width="@dimen/setting_page_icon"
-                android:layout_height="@dimen/setting_page_icon"
-                android:adjustViewBounds="true" />
-        </com.crewcloud.apps.crewapproval.view.RoundedLayout>
+        <ImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="@dimen/setting_page_icon"
+            android:layout_height="@dimen/setting_page_icon" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/setting_mgleft"
+            android:layout_marginLeft="@dimen/setting_mgtop"
             android:text="@string/profle"
             android:textSize="@dimen/setting_tv_size" />
 
     </LinearLayout>
 
-    <TextView
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="@dimen/setting_mgtop"
@@ -61,9 +68,9 @@
     <LinearLayout
         android:id="@+id/ln_general"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="@dimen/setting_mgtop"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@drawable/foreground_selector"
         android:orientation="horizontal"
         android:visibility="gone">
 
@@ -102,7 +109,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/setting_mgtop"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@drawable/foreground_selector"
         android:orientation="horizontal">
 
 
@@ -130,7 +137,7 @@
 
     </LinearLayout>
 
-    <TextView
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="@dimen/setting_mgtop"
@@ -141,7 +148,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/setting_mgtop"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@drawable/foreground_selector"
         android:orientation="horizontal">
 
 
@@ -169,7 +176,7 @@
 
     </LinearLayout>
 
-    <TextView
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="@dimen/setting_mgtop"

@@ -9,6 +9,7 @@ import com.crewcloud.apps.crewapproval.dtos.UserDto;
 import com.crewcloud.apps.crewapproval.interfaces.BaseHTTPCallBack;
 import com.crewcloud.apps.crewapproval.interfaces.OnAutoLoginCallBack;
 import com.google.gson.Gson;
+
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -29,7 +30,7 @@ public class HttpRequest {
         return mInstance;
     }
 
-    public void login(final BaseHTTPCallBack baseHTTPCallBack, String userID, String password, String companyDomain, String server_link) {
+    public void login(final BaseHTTPCallBack baseHTTPCallBack, final String userID, final String password, final String companyDomain, String server_link) {
         final String url = server_link + Urls.URL_GET_LOGIN;
         Map<String, String> params = new HashMap<>();
         params.put("languageCode", Util.getPhoneLanguage());
@@ -51,6 +52,15 @@ public class HttpRequest {
                 userDto.prefs.setCurrentCompanyNo(userDto.CompanyNo);
                 userDto.prefs.setCurrentUserNo(userDto.Id);
                 userDto.prefs.setCurrentUserID(userDto.userID);
+                userDto.prefs.setUserAvatar(userDto.avatar);
+                userDto.prefs.setEmail(userDto.MailAddress);
+                userDto.prefs.setFullName(userDto.FullName);
+                userDto.prefs.setCompanyName(userDto.NameCompany);
+                userDto.prefs.setDomain(companyDomain);
+                userDto.prefs.setPass(password);
+                userDto.prefs.setUserID(userID);
+
+
                 baseHTTPCallBack.onHTTPSuccess();
             }
 
@@ -131,7 +141,7 @@ public class HttpRequest {
     public final static String URL_UPDATE_ANDROID_DEVICE = "/UI/_EAPPMobile/EAPPMobileService.asmx/UpdateAndroidDevice_NotificationOptions";
     public final static String URL_UPDATE_TIMEZONE_ANDROID_DEVICE = "/UI/_EAPPMobile/EAPPMobileService.asmx/UpdateAndroidDevice_TimezoneOffset";
 
-    public static void insertAndroidDevice (final BaseHTTPCallBack callBack,String regid,String json) {
+    public static void insertAndroidDevice(final BaseHTTPCallBack callBack, String regid, String json) {
         final String url = CrewCloudApplication.getInstance().getPreferenceUtilities().getCurrentServiceDomain() + URL_INSERT_ANDROID_DEVICE;
 
         Map<String, String> params = new HashMap<>();
@@ -157,7 +167,7 @@ public class HttpRequest {
         });
     }
 
-    public static void updateAndroidDevice (String regid,String json) {
+    public static void updateAndroidDevice(String regid, String json) {
         final String url = CrewCloudApplication.getInstance().getPreferenceUtilities().getCurrentServiceDomain() + URL_UPDATE_ANDROID_DEVICE;
 
         Map<String, String> params = new HashMap<>();
@@ -171,7 +181,7 @@ public class HttpRequest {
             @Override
             public void onSuccess(String response) {
 
-                Log.e("Update API","Update:"+response);
+                Log.e("Update API", "Update:" + response);
             }
 
             @Override
@@ -183,7 +193,7 @@ public class HttpRequest {
     }
 
     public static void deleteAndroidDevice(final BaseHTTPCallBack callBack) {
-        final String url = CrewCloudApplication.getInstance().getPreferenceUtilities().getCurrentServiceDomain()+URL_DELETE_ANDROID_DEVICE;
+        final String url = CrewCloudApplication.getInstance().getPreferenceUtilities().getCurrentServiceDomain() + URL_DELETE_ANDROID_DEVICE;
         Map<String, String> params = new HashMap<>();
         params.put("sessionId", "" + CrewCloudApplication.getInstance().getPreferenceUtilities().getCurrentMobileSessionId());
         params.put("timeZoneOffset", "" + Util.getTimezoneOffsetInMinutes());
@@ -192,7 +202,7 @@ public class HttpRequest {
         webServiceManager.doJsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new WebServiceManager.RequestListener<String>() {
             @Override
             public void onSuccess(String response) {
-                Log.e("Delete"," :"+response);
+                Log.e("Delete", " :" + response);
                 callBack.onHTTPSuccess();
 //                Log.e(TAG,"response:"+response);
             }
@@ -205,8 +215,8 @@ public class HttpRequest {
         });
     }
 
-    public static void updateTimeZone (String regid) {
-        final String url =  CrewCloudApplication.getInstance().getPreferenceUtilities().getCurrentServiceDomain()+URL_UPDATE_TIMEZONE_ANDROID_DEVICE;
+    public static void updateTimeZone(String regid) {
+        final String url = CrewCloudApplication.getInstance().getPreferenceUtilities().getCurrentServiceDomain() + URL_UPDATE_TIMEZONE_ANDROID_DEVICE;
 
         Map<String, String> params = new HashMap<>();
         params.put("sessionId", "" + CrewCloudApplication.getInstance().getPreferenceUtilities().getCurrentMobileSessionId());
@@ -218,7 +228,7 @@ public class HttpRequest {
             @Override
             public void onSuccess(String response) {
 
-                Log.e("CrewApproval","Update TimeZone response:"+response);
+                Log.e("CrewApproval", "Update TimeZone response:" + response);
             }
 
             @Override

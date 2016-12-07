@@ -2,6 +2,7 @@ package com.crewcloud.apps.crewapproval.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
 import com.crewcloud.apps.crewapproval.CrewCloudApplication;
 
 
@@ -17,6 +18,9 @@ public class PreferenceUtilities {
     private final String KEY_CURRENT_USER_IS_ADMIN = "currentUserIsAdmin";
     private final String INTRO_COUNT = "introCount";
     private final String AESORTTYPE = "aeSortType";
+    private final String PASS = "pass";
+    private final String DOMAIN = "domain";
+    private final String USERID = "user_id";
 
     private final String NOTIFI_MAIL = "notifi_newmail";
     private final String NOTIFI_SOUND = "notifi_sound";
@@ -50,6 +54,30 @@ public class PreferenceUtilities {
 
     public String getCurrentCompanyDomain() {
         return mPreferences.getString(KEY_CURRENT_COMPANY_DOMAIN, "");
+    }
+
+    public void setDomain(String pass) {
+        mPreferences.edit().putString(DOMAIN, pass).apply();
+    }
+
+    public String getDomain() {
+        return mPreferences.getString(DOMAIN, "");
+    }
+
+    public void setUserID(String userID) {
+        mPreferences.edit().putString(USERID, userID).apply();
+    }
+
+    public String getUserId() {
+        return mPreferences.getString(USERID, "");
+    }
+
+    public void setPass(String pass) {
+        mPreferences.edit().putString(PASS, pass).apply();
+    }
+
+    public String getPass() {
+        return mPreferences.getString(PASS, "");
     }
 
     public void setCurrentCompanyNo(int companyNo) {
@@ -110,19 +138,19 @@ public class PreferenceUtilities {
         return mPreferences.getString(KEY_CURRENT_USER_ID, "");
     }
 
-    public int getCurrentUserNo(){
+    public int getCurrentUserNo() {
         return mPreferences.getInt(KEY_CURRENT_USER_NO, 0);
     }
 
-    public void setCurrentUserNo(int userNo){
+    public void setCurrentUserNo(int userNo) {
         mPreferences.edit().putInt(KEY_CURRENT_USER_NO, userNo).apply();
     }
 
-    public int getCurrentIsAdmin(){
+    public int getCurrentIsAdmin() {
         return mPreferences.getInt(KEY_CURRENT_USER_IS_ADMIN, 0);
     }
 
-    public void setCurrentUserIsAdmin(int isAdmin){
+    public void setCurrentUserIsAdmin(int isAdmin) {
         mPreferences.edit().putInt(KEY_CURRENT_USER_IS_ADMIN, isAdmin).apply();
     }
 
@@ -147,6 +175,7 @@ public class PreferenceUtilities {
     public String getGCMregistrationid() {
         return mPreferences.getString(KEY_GCM, "");
     }
+
     public void setEND_TIME(String domain) {
         mPreferences.edit().putString(END_TIME, domain).apply();
     }
@@ -194,6 +223,7 @@ public class PreferenceUtilities {
     public boolean getNOTIFI_SOUND() {
         return mPreferences.getBoolean(NOTIFI_SOUND, true);
     }
+
     public void setTIME_ZONE(int domain) {
         mPreferences.edit().putInt(TIME_ZONE, domain).apply();
     }
@@ -202,7 +232,7 @@ public class PreferenceUtilities {
         return mPreferences.getInt(TIME_ZONE, DeviceUtilities.getTimeZoneOffset());
     }
 
-    public void clearLogin(){
+    public void clearLogin() {
         setCurrentServiceDomain("");
         setCurrentMobileSessionId("");
         setCurrentCompanyNo(0);

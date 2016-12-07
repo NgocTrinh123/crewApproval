@@ -84,5 +84,8 @@
     <string name="email">Mail</string>
     <string name="company_name">Tên tổ chức</string>
     <string name="phone">Số điện thoại</string>
+    <string name="are_you_sure_loguot">Bạn có muốn thoát khỏi phần mềm?</string>
+    <string name="my_profile">Thông tin của tôi</string>
+
 
 </resources>

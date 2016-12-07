@@ -82,6 +82,8 @@
     <string name="personal_id">PERSONAL ID</string>
     <string name="email">EMAIL</string>
     <string name="company_name">COMPANY NAME</string>
-    <string name="phone">PHONE NUMBER</string>>
+    <string name="phone">PHONE NUMBER</string>
+    <string name="are_you_sure_loguot">Are you sure you want to logout?</string>
+    <string name="my_profile">My Profile</string>
 
 </resources>

@@ -1,13 +1,15 @@
 package com.crewcloud.apps.crewapproval.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crewcloud.apps.crewapproval.CrewCloudApplication;
@@ -31,12 +33,10 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         setContentView(R.layout.setting_page_layout);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-        if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.myColor_PrimaryDark));
-        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Testing");
         toolbar.setNavigationIcon(R.drawable.nav_back_ic);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,18 +66,47 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        if (v == ln_profile) {
-//            Intent intent = new Intent(SettingActivity.this, LogoutActivity.class);
-//            startActivity(intent);
-            BaseActivity.Instance.callActivity(ProfileActivity.class);
-        } else if (v == ln_general) {
-            Toast.makeText(getApplicationContext(), "undev", Toast.LENGTH_SHORT).show();
-        } else if (v == ln_notify) {
-//            Intent intent = new Intent(SettingActivity.this, NotificationSettingActivity.class);
-//            startActivity(intent);
-            BaseActivity.Instance.callActivity(NotificationSettingActivity.class);
-        } else if (v == ln_logout) {
-            logout();
+        switch (v.getId()) {
+            case R.id.ln_profile:
+                BaseActivity.Instance.callActivity(ProfileActivity.class);
+                break;
+            case R.id.ln_general:
+                Toast.makeText(getApplicationContext(), "undev", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.ln_logout:
+//                DialogUtils.showDialogWithMessage(getApplicationContext(), "Logout");
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(SettingActivity.this)
+                        .setMessage(R.string.are_you_sure_loguot)
+                        .setPositiveButton(Util.getString(R.string.auto_login_button_yes), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                logout();
+                            }
+                        })
+                        .setNegativeButton(Util.getString(R.string.auto_login_button_no), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                //builder.show();
+
+                final AlertDialog alertDialog = builder.create();
+
+                alertDialog.show();
+
+                TextView textView = (TextView) alertDialog.findViewById(android.R.id.message);
+                if (textView != null) {
+                    //textView.setTextSize(18);
+                    textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                }
+
+                break;
+            case R.id.ln_notify:
+                BaseActivity.Instance.callActivity(NotificationSettingActivity.class);
+                break;
+            default:
+                break;
         }
     }
 

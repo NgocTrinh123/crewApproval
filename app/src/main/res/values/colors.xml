@@ -14,4 +14,6 @@
     <color name="drawer_devide_color">#909796</color>
 
     <color name="gray_light">#DFDFDF</color>
+    <color name="foreground_checked">#10000000</color>
+
 </resources>

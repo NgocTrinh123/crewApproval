@@ -1,7 +1,11 @@
 package com.crewcloud.apps.crewapproval.activity;
 
 import android.app.AlertDialog;
-import android.content.*;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,7 +18,13 @@ import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.*;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.crewcloud.apps.crewapproval.CrewCloudApplication;
 import com.crewcloud.apps.crewapproval.R;
 import com.crewcloud.apps.crewapproval.dtos.ErrorDto;
@@ -47,7 +57,9 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnH
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_v2);
-
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.myColor_PrimaryDark));
+        }
         registerInBackground();
 
         mPrefs = CrewCloudApplication.getInstance().getPreferenceUtilities();
@@ -126,7 +138,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnH
 //            callActivity(IntroActivity.class);
 //            mHasIntro = true;
 //        } else {
-            firstChecking();
+        firstChecking();
 //        }
     }
 
@@ -325,6 +337,10 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnH
         login_edt_username.setPrivateImeOptions("defaultInputmode=english;");
         login_edt_server.setPrivateImeOptions("defaultInputmode=english;");
 
+        login_edt_username.setText(new PreferenceUtilities().getUserId());
+        login_edt_password.setText(new PreferenceUtilities().getPass());
+        login_edt_server.setText(new PreferenceUtilities().getDomain());
+
         login_edt_username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -389,50 +405,48 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnH
             });
         }
 
-        if (login_btn_login != null) {
-            login_btn_login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mInputUsername = login_edt_username.getText().toString();
-                    mInputPassword = login_edt_password.getText().toString();
-                    server_site = login_edt_server.getText().toString();
+        if (login_btn_login != null) login_btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mInputUsername = login_edt_username.getText().toString();
+                mInputPassword = login_edt_password.getText().toString();
+                server_site = login_edt_server.getText().toString();
 
-                    if (TextUtils.isEmpty(checkStringValue(server_site, mInputUsername, mInputPassword))) {
-                        server_site = getServerSite(server_site);
-                        String company_domain = server_site;
-                        if (!company_domain.startsWith("http")) {
-                            server_site = "http://" + server_site;
-                        }
-
-                        String temp_server_site = server_site;
-
-                        if (temp_server_site.contains(".bizsw.co.kr")) {
-                            temp_server_site = "http://www.bizsw.co.kr:8080";
-                        } else {
-                            if (temp_server_site.contains("crewcloud")) {
-                                temp_server_site = "http://www.crewcloud.net";
-                            }
-                        }
-
-                        showProgressDialog();
-
-                        PreferenceUtilities preferenceUtilities = CrewCloudApplication.getInstance().getPreferenceUtilities();
-
-                        preferenceUtilities.setCurrentServiceDomain(temp_server_site); // Domain
-                        preferenceUtilities.setCurrentCompanyDomain(company_domain); // group ID
-
-                        HttpRequest.getInstance().login(LoginActivity.this, mInputUsername, mInputPassword, company_domain, temp_server_site);
-                    } else {
-                        displayAddAlertDialog(getString(R.string.app_name), checkStringValue(server_site, mInputUsername, mInputPassword), getString(R.string.string_ok), null,
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                    }
-                                }, null);
+                if (TextUtils.isEmpty(checkStringValue(server_site, mInputUsername, mInputPassword))) {
+                    server_site = getServerSite(server_site);
+                    String company_domain = server_site;
+                    if (!company_domain.startsWith("http")) {
+                        server_site = "http://" + server_site;
                     }
+
+                    String temp_server_site = server_site;
+
+                    if (temp_server_site.contains(".bizsw.co.kr")) {
+                        temp_server_site = "http://www.bizsw.co.kr:8080";
+                    } else {
+                        if (temp_server_site.contains("crewcloud")) {
+                            temp_server_site = "http://www.crewcloud.net";
+                        }
+                    }
+
+                    showProgressDialog();
+
+                    PreferenceUtilities preferenceUtilities = CrewCloudApplication.getInstance().getPreferenceUtilities();
+
+                    preferenceUtilities.setCurrentServiceDomain(temp_server_site); // Domain
+                    preferenceUtilities.setCurrentCompanyDomain(company_domain); // group ID
+
+                    HttpRequest.getInstance().login(LoginActivity.this, mInputUsername, mInputPassword, company_domain, temp_server_site);
+                } else {
+                    displayAddAlertDialog(getString(R.string.app_name), checkStringValue(server_site, mInputUsername, mInputPassword), getString(R.string.string_ok), null,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            }, null);
                 }
-            });
-        }
+            }
+        });
     }
 
     private String checkStringValue(String server_site, String username, String password) {
@@ -492,7 +506,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnH
         dismissProgressDialog();
     }
 
-    public void insertAndroidDevice(){
+    public void insertAndroidDevice() {
         String start_time = mPrefs.getSTART_TIME();
         String end_time = mPrefs.getEND_TIME();
         if (start_time.length() == 0) {
@@ -504,7 +518,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnH
             mPrefs.setEND_TIME(end_time);
         }
 
-        String  notificationOptions = "{" +
+        String notificationOptions = "{" +
                 "\"enabled\": " + mPrefs.getNOTIFI_MAIL() + "," +
                 "\"sound\": " + mPrefs.getNOTIFI_SOUND() + "," +
                 "\"vibrate\": " + mPrefs.getNOTIFI_VIBRATE() + "," +
@@ -512,7 +526,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnH
                 "\"starttime\": \"" + Util.getFullHour(start_time) + "\"," +
                 "\"endtime\": \"" + Util.getFullHour(end_time) + "\"" + "}";
         notificationOptions = notificationOptions.trim();
-        HttpRequest.getInstance().insertAndroidDevice(new BaseHTTPCallBack(){
+        HttpRequest.getInstance().insertAndroidDevice(new BaseHTTPCallBack() {
             @Override
             public void onHTTPSuccess() {
                 callActivity(MainActivity.class);
@@ -524,7 +538,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnH
             public void onHTTPFail(ErrorDto errorDto) {
 
             }
-        },regid,notificationOptions);
+        }, regid, notificationOptions);
     }
 
     private void registerInBackground() {
@@ -533,6 +547,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnH
 
     String regid;
     String msg = "";
+
     public class register extends AsyncTask<String, Void, Void> {
         @Override
         protected void onPreExecute() {
