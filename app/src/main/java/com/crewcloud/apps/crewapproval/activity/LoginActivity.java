@@ -18,6 +18,7 @@ import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -42,7 +43,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnH
     private ImageView img_login_logo;
     private TextView tv_login_logo_text;
     private EditText login_edt_server, login_edt_username, login_edt_password;
-    private RelativeLayout login_btn_login;
+    private Button login_btn_login;
     private LinearLayout ll_login_sign_up;
     public PreferenceUtilities mPrefs;
     private boolean mFirstLogin = true;
@@ -391,7 +392,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnH
             }
         });
 
-        login_btn_login = (RelativeLayout) findViewById(R.id.login_btn_login);
+        login_btn_login = (Button) findViewById(R.id.login_btn_login);
         RelativeLayout login_btn_sign_up = (RelativeLayout) findViewById(R.id.login_btn_sign_up);
 
         if (login_btn_sign_up != null) {

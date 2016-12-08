@@ -26,44 +26,47 @@
                 android:gravity="center_vertical"
                 android:text="@string/setting"
                 android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/setting_tv_size" />
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/ln_profile"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="@dimen/setting_mgleft"
-        android:layout_marginTop="@dimen/setting_mgtop"
+        android:layout_height="wrap_content"
         android:background="@drawable/foreground_selector"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/margin_big"
+        android:paddingLeft="@dimen/setting_mgleft"
+        android:paddingTop="@dimen/margin_big">
 
 
         <ImageView
             android:id="@+id/img_avatar"
             android:layout_width="@dimen/setting_page_icon"
-            android:layout_height="@dimen/setting_page_icon" />
+            android:layout_height="@dimen/setting_page_icon"
+            android:layout_centerVertical="true" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/setting_mgtop"
+            android:layout_toRightOf="@+id/img_avatar"
             android:text="@string/profle"
             android:textSize="@dimen/setting_tv_size" />
 
-    </LinearLayout>
+
+    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="@dimen/setting_mgtop"
         android:background="@color/gray_light"
-        android:visibility="gone" />
+        android:visibility="visible" />
+
 
     <LinearLayout
         android:id="@+id/ln_general"
@@ -98,26 +101,27 @@
 
     </LinearLayout>
 
-    <TextView
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="@dimen/setting_mgtop"
-        android:background="@color/gray_light" />
+        android:background="@color/gray_light"
+        android:visibility="gone" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/ln_notify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/setting_mgtop"
-        android:background="@drawable/foreground_selector"
-        android:orientation="horizontal">
+        android:background="@drawable/foreground_selector">
 
 
         <com.crewcloud.apps.crewapproval.view.RoundedLayoutCircle
+            android:id="@+id/setting_page_rlc_noti"
             android:layout_width="@dimen/setting_page_icon_under"
             android:layout_height="@dimen/setting_page_icon_under"
-            android:layout_gravity="center"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/setting_mgleft"
+            android:layout_marginTop="@dimen/margin_big"
             android:background="@color/colorPrimary">
 
             <ImageView
@@ -130,33 +134,35 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/setting_mgleft"
+            android:layout_toRightOf="@+id/setting_page_rlc_noti"
             android:text="@string/notify_setting"
             android:textSize="@dimen/setting_tv_size" />
 
-    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/setting_page_rlc_noti"
+            android:layout_marginTop="@dimen/margin_big"
+            android:background="@color/gray_light" />
+    </RelativeLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="@dimen/setting_mgtop"
-        android:background="@color/gray_light" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/ln_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/setting_mgtop"
-        android:background="@drawable/foreground_selector"
-        android:orientation="horizontal">
+        android:background="@drawable/foreground_selector">
 
 
         <com.crewcloud.apps.crewapproval.view.RoundedLayoutCircle
+            android:id="@+id/setting_page_rlc_logout"
             android:layout_width="@dimen/setting_page_icon_under"
             android:layout_height="@dimen/setting_page_icon_under"
-            android:layout_gravity="center"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/setting_mgleft"
+            android:layout_marginTop="@dimen/margin_big"
             android:background="@color/colorPrimary">
 
             <ImageView
@@ -169,17 +175,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/setting_mgleft"
+            android:layout_toRightOf="@+id/setting_page_rlc_logout"
             android:text="@string/logout"
             android:textSize="@dimen/setting_tv_size" />
 
-    </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="@dimen/setting_mgtop"
-        android:background="@color/gray_light" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/setting_page_rlc_logout"
+            android:layout_marginTop="@dimen/margin_big"
+            android:background="@color/gray_light" />
+    </RelativeLayout>
+
 
 </LinearLayout>

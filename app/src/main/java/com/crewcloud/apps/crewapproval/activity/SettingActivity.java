@@ -9,6 +9,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +25,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 public class SettingActivity extends BaseActivity implements View.OnClickListener {
     private ImageView img_avatar;
-    private LinearLayout ln_profile, ln_general, ln_notify, ln_logout;
+    private LinearLayout ln_general;
+    private RelativeLayout ln_logout, ln_profile, ln_notify;
     public PreferenceUtilities prefs;
 
     @Override
@@ -36,7 +38,6 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Testing");
         toolbar.setNavigationIcon(R.drawable.nav_back_ic);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,10 +46,10 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             }
         });
 
-        ln_profile = (LinearLayout) findViewById(R.id.ln_profile);
+        ln_profile = (RelativeLayout) findViewById(R.id.ln_profile);
         ln_general = (LinearLayout) findViewById(R.id.ln_general);
-        ln_notify = (LinearLayout) findViewById(R.id.ln_notify);
-        ln_logout = (LinearLayout) findViewById(R.id.ln_logout);
+        ln_notify = (RelativeLayout) findViewById(R.id.ln_notify);
+        ln_logout = (RelativeLayout) findViewById(R.id.ln_logout);
         ln_profile.setOnClickListener(this);
         ln_general.setOnClickListener(this);
         ln_notify.setOnClickListener(this);
@@ -74,7 +75,6 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 Toast.makeText(getApplicationContext(), "undev", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.ln_logout:
-//                DialogUtils.showDialogWithMessage(getApplicationContext(), "Logout");
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(SettingActivity.this)
                         .setMessage(R.string.are_you_sure_loguot)
